@@ -1,0 +1,16 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - npm install
+    build:
+      commands:
+        - echo "Checking environment variables..."
+        - echo "NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL"
+        - echo "AIRTABLE_BASE_ID is set"
+        - npm run build
+  artifacts:
+    baseDirectory: .next
+    files:
+      - '**/*'
